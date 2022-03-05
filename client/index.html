@@ -6,14 +6,35 @@
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
     <button id="fortuneButton">give my fortune</button>
-    <h2>colors</h2>
-    <ul id= "colors"></ul>
-    <button id="colorButton">get the colors list</button>
-    <input type="text"  id="colorInput" placeholder="add new color"/>
-    <button id="colorInputBtn">submit</button>
-    <button id="hi5Button">high five</button>
+    <br>
+
+    <input id="bookInput" type="text" placeholder="enter your fav book"/>
+    <button id="bookButton">submit book</button>
+    <br>
+
+    <input id="indexInput" placeholder="enter an index number"/>
+    <button id="indexButton">delete book</button>
+
+
+    <form>
+      <label>regret the book you added? change it</label>
+      <br>
+      <label>type in a new book</label><input id="newBookInput" type="text" placeholder="enter the new title"/>
+      <br>
+      <label>type in an index</label><input id="newBookIndex" placeholder ="enter an index to edit"/>
+      <input type="button" value="submit" id="submitForm"/>
+    </form>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
+
+
+
+<!-- <h2>colors</h2>
+<ul id= "colors"></ul>
+<button id="colorButton">get the colors list</button>
+<input type="text"  id="colorInput" placeholder="add new color"/>
+<button id="colorInputBtn">submit</button>
+<button id="hi5Button">high five</button> -->

@@ -23,6 +23,8 @@ app.get("/api/compliment", (req, res) => {
   
 });
 
+const books = []
+
 app.get("/api/fortune", (req, res) => {
   const fortune = [
     "Long life is in store for you.",
@@ -41,32 +43,39 @@ app.get("/api/fortune", (req, res) => {
   
 });
 
-const color = [
-  "blue",
-  "green",
-  "orange",
-  "red",
-  "yellow",
-  "black",
-];
-app.get("/api/color", (req, res) => {
-  res.status(200).send(color);
-});
+app.post("/api/book", (req, res) => {
+  const {newBook} = req.body
 
-app.post("/api/color", (req, res) => {
+  books.push(newBook)
+
+  res.status(200).send(books)
+})
+
+app.delete("/api/delete/:index", (req, res) => {
+  console.log(req.params)
+
+  if(+req.params.index) {
+    books.splice(req.params.index, 1)
+    res.status(200).send(books)
+  } else {
+    res.status(400).send("no book at this index")
+  }
+})
+
+app.put("/api/edit/:id", (req, res) => {
+  console.log(req.params)
   console.log(req.body)
-  let newColor = req.body
-  color.push(newColor)
-  res.status(200).send(color); 
-});
 
-app.get("/api/hi5", (req, res) => {
-  const tooSlow = "too slow"
+  const {bookChange} = req.body
+  const editIndex = +req.params.id
 
-  res.status(200).send(tooSlow);
+  books[editIndex] = bookChange
   
-});
+  res.status(200).send(books)
+})
 
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
+
+
